@@ -101,15 +101,15 @@ draft: false
 </style>
 
 <div class="course-gallery">
-  <a href="/posts/post-3/assets/course-01.jpg" target="_blank" class="course-card course-card--teal">
+  <a href="./assets/course-01.jpg" target="_blank" class="course-card course-card--teal">
     <span>外婆的银镯无声陪伴——数字时代下遗物的媒介特性与情感传播</span>
     <span class="course-hint">点击查看完整内容 →</span>
   </a>
-  <a href="/posts/post-3/assets/course-02.jpg" target="_blank" class="course-card course-card--blue">
+  <a href="./assets/course-02.jpg" target="_blank" class="course-card course-card--blue">
     <span>《新闻采访与写作》实践作品</span>
     <span class="course-hint">点击查看完整内容 →</span>
   </a>
-  <a href="/posts/post-3/assets/course-03.jpg" target="_blank" class="course-card course-card--lilac">
+  <a href="./assets/course-03.jpg" target="_blank" class="course-card course-card--lilac">
     <span>看见幸福就“破防”——网络社会中的比较心理与幸福观</span>
     <span class="course-hint">点击查看完整内容 →</span>
   </a>

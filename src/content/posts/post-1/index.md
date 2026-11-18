@@ -84,7 +84,7 @@ draft: false
 </style>
 
 <div class="ppt-gallery">
-  <a class="ppt-card" href="/posts/post-1/assets/ppt-01.jpg" target="_blank" rel="noopener noreferrer">
+  <a class="ppt-card" href="./assets/ppt-01.jpg" target="_blank" rel="noopener noreferrer">
     <img class="ppt-card__cover" src="./assets/cover-01.jpg" alt="封面1" style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #f0f0f0;" />
     <div class="ppt-card__body">
       <p class="ppt-card__title">从精神生产资料看数字时代新闻人民性的消解与重塑</p>
@@ -92,7 +92,7 @@ draft: false
     </div>
   </a>
 
-  <a class="ppt-card" href="/posts/post-1/assets/ppt-02.jpg" target="_blank" rel="noopener noreferrer">
+  <a class="ppt-card" href="./assets/ppt-02.jpg" target="_blank" rel="noopener noreferrer">
     <img class="ppt-card__cover" src="./assets/cover-02.jpg" alt="封面2" style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #f0f0f0;" />
     <div class="ppt-card__body">
       <p class="ppt-card__title">速度——运动科学的多维度解析</p>
@@ -100,7 +100,7 @@ draft: false
     </div>
   </a>
 
-  <a class="ppt-card" href="/posts/post-1/assets/ppt-03.jpg" target="_blank" rel="noopener noreferrer">
+  <a class="ppt-card" href="./assets/ppt-03.jpg" target="_blank" rel="noopener noreferrer">
     <img class="ppt-card__cover" src="./assets/cover-03.jpg" alt="封面3" style="width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #f0f0f0;" />
     <div class="ppt-card__body">
       <p class="ppt-card__title">嵌瓷醉月——隆昌嵌瓷坊的雅韵与新生</p>

@@ -7,6 +7,7 @@ import WaveDivider from '../components/WaveDivider.astro';
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
 );
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <BaseLayout title="智能传播与交互实践" description="聚焦智能传播、AI 自动化工作流与交互视觉实践。">
@@ -19,7 +20,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
       </p>
       <div class="hero__actions">
         <a class="button" href="#latest">阅读最新文章</a>
-        <a class="button button--ghost" href="/about/">了解本站</a>
+        <a class="button button--ghost" href={`${base}about/`}>了解本站</a>
       </div>
     </div>
 
@@ -120,22 +121,22 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         <p class="section__note">四个持续更新的内容方向</p>
       </div>
       <div class="category-strip">
-        <a class="category-card" href="/posts/post-1/">
+        <a class="category-card" href={`${base}posts/post-1/`}>
           <h3>AI与智能传播</h3>
           <p>记录AI大模型、自动化工作流、API实践。</p>
           <span class="category-card__arrow" aria-hidden="true">→</span>
         </a>
-        <a class="category-card" href="/posts/post-2/">
+        <a class="category-card" href={`${base}posts/post-2/`}>
           <h3>交互与前端</h3>
           <p>记录网页搭建、Astro框架、GitHub部署经验。</p>
           <span class="category-card__arrow" aria-hidden="true">→</span>
         </a>
-        <a class="category-card" href="/posts/post-3/">
+        <a class="category-card" href={`${base}posts/post-3/`}>
           <h3>视觉与二创</h3>
           <p>记录Cosplay造型、视频剪辑、后期调色。</p>
           <span class="category-card__arrow" aria-hidden="true">→</span>
         </a>
-        <a class="category-card" href="/archive">
+        <a class="category-card" href={`${base}archive/`}>
           <h3>新传阅读笔记</h3>
           <p>记录媒介批评、传播学经典书籍沉淀。</p>
           <span class="category-card__arrow" aria-hidden="true">→</span>
