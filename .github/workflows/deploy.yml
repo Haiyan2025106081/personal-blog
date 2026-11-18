@@ -27,9 +27,8 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
+      # 不使用 actions/configure-pages：仓库尚未启用 Pages 时该步骤会因 API 404 失败。
+      # 本项目已在 astro.config.mjs 中显式设置 site 与 base，无需其注入的元数据。
       - name: Install dependencies
         run: npm install
 
