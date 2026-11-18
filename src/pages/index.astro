@@ -1,0 +1,169 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import WaveDivider from '../components/WaveDivider.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
+);
+---
+
+<BaseLayout title="智能传播与交互实践" description="聚焦智能传播、AI 自动化工作流与交互视觉实践。">
+  <section class="hero container">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">Personal Knowledge Base</p>
+      <h1 class="hero__title">智能传播与<span class="hero__title-accent">交互实践</span></h1>
+      <p class="hero__lead">
+        聚焦智能传播、AI 自动化工作流与交互视觉实践
+      </p>
+      <div class="hero__actions">
+        <a class="button" href="#latest">阅读最新文章</a>
+        <a class="button button--ghost" href="/about/">了解本站</a>
+      </div>
+    </div>
+
+    <div class="hero__art">
+      <div class="hero__art-bg" aria-hidden="true">
+        <div class="hero__orb"></div>
+        <div class="isometric-card isometric-card--one"></div>
+        <div class="isometric-card isometric-card--two"></div>
+        <div class="hero__dot-grid"></div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card__avatar" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="42" height="42" fill="none" stroke="#2F7180" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 37 C17 25 25 25 32 35 C39 25 47 25 55 37" />
+            <path d="M23 45 C27 41 30 41 32 44 C34 41 37 41 41 45" opacity="0.55" />
+          </svg>
+        </div>
+        <p class="hero-card__nickname">风暴小鸟</p>
+        <p class="hero-card__name">王欣彤</p>
+        <div class="hero-card__tags">
+          <span class="hero-card__tag">西北大学</span>
+          <span class="hero-card__tag">新闻传播学院</span>
+          <span class="hero-card__tag">网络与新媒体专业</span>
+          <span class="hero-card__tag">智能传播方向</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <WaveDivider />
+
+  <section class="section container" id="latest">
+    <div class="section__header">
+      <div>
+        <p class="section__eyebrow">Latest Writing</p>
+        <h2 class="section__title">最新文章</h2>
+      </div>
+      <p class="section__note">Markdown 驱动 · 持续更新 · 本地优先</p>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="post-grid post-grid--home">
+        {posts.slice(0, 3).map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+    ) : (
+      <div class="post-card">
+        <div class="post-card__body">
+          <h3 class="post-card__title">还没有文章</h3>
+          <p class="post-card__desc">在 src/content/posts 下添加第一篇文章吧。</p>
+        </div>
+      </div>
+    )}
+  </section>
+
+  <section class="container" aria-label="站点数据看板">
+    <div class="stats-dashboard">
+      <div class="stats-item">
+        <span class="stats-item__icon" aria-hidden="true">🗂️</span>
+        <div class="stats-item__text">
+          <span class="stats-item__label">已归档知识</span>
+          <strong class="stats-item__value">3 个专题</strong>
+        </div>
+      </div>
+      <div class="stats-item">
+        <span class="stats-item__icon" aria-hidden="true">🖼️</span>
+        <div class="stats-item__text">
+          <span class="stats-item__label">沉淀视觉资产</span>
+          <strong class="stats-item__value">10 张图片</strong>
+        </div>
+      </div>
+      <div class="stats-item">
+        <span class="stats-item__icon" aria-hidden="true">🛠️</span>
+        <div class="stats-item__text">
+          <span class="stats-item__label">核心技术栈</span>
+          <strong class="stats-item__value">Astro + Markdown + AI</strong>
+        </div>
+      </div>
+      <div class="stats-item">
+        <span class="stats-item__icon" aria-hidden="true">🌐</span>
+        <div class="stats-item__text">
+          <span class="stats-item__label">托管与部署</span>
+          <strong class="stats-item__value">GitHub Pages</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section__header">
+        <div>
+          <p class="section__eyebrow">Knowledge Map</p>
+          <h2 class="section__title">内容版图</h2>
+        </div>
+        <p class="section__note">四个持续更新的内容方向</p>
+      </div>
+      <div class="category-strip">
+        <a class="category-card" href="/posts/post-1/">
+          <h3>AI与智能传播</h3>
+          <p>记录AI大模型、自动化工作流、API实践。</p>
+          <span class="category-card__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="category-card" href="/posts/post-2/">
+          <h3>交互与前端</h3>
+          <p>记录网页搭建、Astro框架、GitHub部署经验。</p>
+          <span class="category-card__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="category-card" href="/posts/post-3/">
+          <h3>视觉与二创</h3>
+          <p>记录Cosplay造型、视频剪辑、后期调色。</p>
+          <span class="category-card__arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="category-card" href="/archive">
+          <h3>新传阅读笔记</h3>
+          <p>记录媒介批评、传播学经典书籍沉淀。</p>
+          <span class="category-card__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-label="建站日志">
+    <div class="site-log">
+      <div class="site-log__copy">
+        <p class="section__eyebrow">Site Log</p>
+        <h2 class="section__title">关于本站</h2>
+        <p>本站基于 Astro 7.4 构建，使用 Markdown 驱动内容，探索智能传播与新媒体实践。</p>
+      </div>
+      <div class="site-log__terminal" aria-label="站点配置代码片段">
+        <div class="site-log__terminal-bar" aria-hidden="true">
+          <span class="site-log__dot site-log__dot--red"></span>
+          <span class="site-log__dot site-log__dot--yellow"></span>
+          <span class="site-log__dot site-log__dot--green"></span>
+          <span class="site-log__terminal-title">knowledge-base.config.js</span>
+        </div>
+        <pre class="site-log__code"><code><span class="tok-key">const</span> site = <span class="tok-key">new</span> <span class="tok-fn">KnowledgeBase</span>({
+  <span class="tok-attr">author</span>: <span class="tok-str">"风暴小鸟"</span>,
+  <span class="tok-attr">focus</span>: [<span class="tok-str">"AI"</span>, <span class="tok-str">"Interaction"</span>, <span class="tok-str">"Media"</span>],
+  <span class="tok-attr">status</span>: <span class="tok-str">"Building..."</span>
+});</code></pre>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

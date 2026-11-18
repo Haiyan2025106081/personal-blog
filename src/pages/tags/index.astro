@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const tagMap = new Map<string, number>();
+
+for (const post of posts) {
+  for (const tag of post.data.tags ?? []) {
+    tagMap.set(tag, (tagMap.get(tag) ?? 0) + 1);
+  }
+}
+
+const tags = [...tagMap.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="标签索引" description="按标签浏览文章。">
+  <div class="container page-title">
+    <h1>标签索引</h1>
+    <p>用标签把不同文章中的相关主题连接起来。</p>
+  </div>
+
+  <section class="section container">
+    <div class="tags">
+      {tags.length > 0 ? tags.map(([tag, count]) => (
+        <span class="tag">{tag} · {count}</span>
+      )) : <p class="section__note">暂无标签。</p>}
+    </div>
+  </section>
+</BaseLayout>

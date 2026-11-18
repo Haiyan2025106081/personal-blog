@@ -1,0 +1,26 @@
+---
+interface Props {
+  post: any;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const date = new Intl.DateTimeFormat('zh-CN', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).format(post.data.pubDate);
+---
+
+<article class:list={['post-card', { 'post-card--featured': featured }]}>
+  <div class="post-card__cover-art" aria-hidden="true"></div>
+  <div class="post-card__body">
+    <div class="post-card__meta">
+      <span class="tag">{post.data.category}</span>
+      <time datetime={post.data.pubDate.toISOString()}>{date}</time>
+    </div>
+    <h2 class="post-card__title">{post.data.title}</h2>
+    <p class="post-card__desc">{post.data.description}</p>
+    <a class="post-card__link" href={`/posts/${post.id}/`}>阅读全文 →</a>
+  </div>
+</article>
